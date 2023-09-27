@@ -7,4 +7,4 @@ routes.get('/classes/:id', classId);
 routes.get('/instructors', allInstructors);
 routes.get('/instructors/:id', instructorId);
 routes.post('/instructors/:id/classes', newClass);
-module.exports = {routes};
+module.exports = { routes };
