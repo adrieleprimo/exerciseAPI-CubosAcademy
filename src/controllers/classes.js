@@ -19,6 +19,8 @@ const allInstructors = (req, res) => {
     return res.status(200).json(instructors);
 }
 
+
+
 const instructorId = (req, res) => {
     const { id } = req.params;
     const validationId = instructors.find((elemento) => {
@@ -52,4 +54,18 @@ const newClass = (req, res) => {
 
 }
 
-module.exports = { allClasses, classId, allInstructors, instructorId, newClass }
+const instructorClass = (req, res)=>{
+    const {id} = req.params;
+    const instructorClasses = classes.filter((instructor) => {
+        return instructor.id === Number(id);
+    });
+    if (!instructorClasses) {
+        return res.status(404).json({ message: "Id Not Found" })
+    }
+    if(instructorClasses.length === 0){
+        return res.status(404).json({ message: "This Id don't have classes"});
+    }
+    return res.status(200).json(instructorClasses);
+}
+
+module.exports = { allClasses, classId, allInstructors, instructorId, newClass,  instructorClass}
