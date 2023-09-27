@@ -1,4 +1,4 @@
-let { instructors, classes, IdentifierClass } = require('../databases/databases');
+let { instructors, classes, IdentifierClass} = require('../databases/databases');
 
 const allClasses = (req, res) => {
     return res.status(200).json(classes);
@@ -15,22 +15,6 @@ const classId = (req, res) => {
     return res.status(200).json(validationId);
 }
 
-const allInstructors = (req, res) => {
-    return res.status(200).json(instructors);
-}
-
-
-
-const instructorId = (req, res) => {
-    const { id } = req.params;
-    const validationId = instructors.find((elemento) => {
-        return elemento.id === Number(id);
-    });
-    if (!validationId) {
-        return res.status(404).json({ message: "Id Not Found" })
-    }
-    return res.status(200).json(validationId);
-}
 
 const newClass = (req, res) => {
     const { id } = req.params;
@@ -68,4 +52,5 @@ const instructorClass = (req, res)=>{
     return res.status(200).json(instructorClasses);
 }
 
-module.exports = { allClasses, classId, allInstructors, instructorId, newClass,  instructorClass}
+
+module.exports = { allClasses, classId, newClass,  instructorClass}

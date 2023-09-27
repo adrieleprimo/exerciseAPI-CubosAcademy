@@ -1,5 +1,6 @@
 const databases = {
     IdentifierClass: 2,
+    IdentifierInstructor: 3,
     instructors: [
         {
             id: 1,
